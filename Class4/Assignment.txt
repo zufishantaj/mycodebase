@@ -1,0 +1,7 @@
+1.Take a sample list , unser input, Check the number is in list
+2. Tke two lists which have some ,dublicates, create a third list than does not conmtyains any dublicted 
+3. Game
+User name inmput
+Name->letter (add letter of the name into an int)
+Model 10, return ,
+Lucky number program
