@@ -5,3 +5,4 @@ User name inmput
 Name->letter (add letter of the name into an int)
 Model 10, return ,
 Lucky number program
+Small Change
