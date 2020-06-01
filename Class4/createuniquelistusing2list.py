@@ -20,8 +20,15 @@ def inserting_elements_in_list():
 
 def creating_unique_list(list1, list2):
     for i in list1:
-        
+        if i not in list3:
+            list3.append(i)
+    for j in list2:
+        if j not in list3:
+            list3.append(j)
+    print(list3)
+
 
 
 if __name__ == '__main__':
     inserting_elements_in_list()
+    creating_unique_list(list1, list2)
