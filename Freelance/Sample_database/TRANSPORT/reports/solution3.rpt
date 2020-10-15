@@ -1,0 +1,40 @@
+mysql> use xyz001;
+Database changed
+mysql> CREATE TABLE OLD_DRIVER LIKE xyz001.driver;
+Query OK, 0 rows affected (0.24 sec)
+
+mysql> select * from old_driver;
++------+-------+-----------+
+| ENUM | LNUM  | STATUS    |
++------+-------+-----------+
+|    0 |     1 | AVAILABLE |
+|    2 | 10008 | ON LEAVE  |
+|    4 | 10004 | AVAILABLE |
+|    5 | 10003 | ON LEAVE  |
+|    6 | 10012 | AVAILABLE |
+|    7 | 20002 | BUSY      |
+|    8 | 20003 | BUSY      |
+|    9 | 30005 | BUSY      |
+|   10 | 40002 | BUSY      |
+|   11 | 20045 | AVAILABLE |
+|   12 | 20055 | AVAILABLE |
+|   13 | 20065 | AVAILABLE |
+|   14 | 10305 | AVAILABLE |
+|   15 | 10345 | AVAILABLE |
+|   16 | 10705 | AVAILABLE |
+|   17 | 40005 | AVAILABLE |
++------+-------+-----------+
+16 rows in set (0.01 sec)
+
+mysql> select a.enum, b.lnum          from employee a,           driver b         where a.enum=b.enum           and (select max(tdate) from trip where lnum=b.lnum)<'2015-05-31';
++------+-------+
+| enum | lnum  |
++------+-------+
+|    7 | 20002 |
++------+-------+
+1 row in set (0.00 sec)
+
+mysql> select   a.enum, b.lnum, a.fname, a.lname            from employee a,             driver b           where a.enum=b.enum             and (select min(tdate) from trip where lnum=b.lnum)>'2015-05-31';
+Empty set (0.00 sec)
+
+mysql> exit

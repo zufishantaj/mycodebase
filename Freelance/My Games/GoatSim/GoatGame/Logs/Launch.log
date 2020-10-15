@@ -1,0 +1,96 @@
+Log: Log file open, 07/21/20 23:00:49
+Init: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+Log:  ... running in INSTALLED mode
+DevConfig: GConfig::Find has loaded file:  ..\..\Engine\Config\ConsoleVariables.ini
+Init: Version: 10897
+Init: Epic Internal: 0
+Init: Compiled (32-bit): Mar 21 2014 10:04:59
+Init: Changelist: 1532151
+Init: Command line: 
+Init: Base directory: C:\Program Files (x86)\Coffee Stain Studios\Goat Simulator\Binaries\Win32\
+[0000.65] Init: Computer: LAPTOP-RH6FHV53
+[0000.65] Init: User: zufishanTaj
+[0000.65] Init: CPU Page size=4096, Processors=8
+[0000.65] Init: High frequency timer resolution =10.000000 MHz
+[0000.65] Init: Memory total: Physical=7.9GB (7GB approx) Pagefile=10.6GB Virtual=4.0GB
+[0000.65] Log: Steam Client API initialized 0
+[0000.65] Log: Steam Game Server API initialized 0
+[0000.65] Init: Presizing for 33476 objects not considered by GC, pre-allocating 0 bytes.
+[0000.65] Init: Object subsystem initialized
+[0000.66] DevDataBase: Connection to "Provider=sqloledb;Data Source=production-db;Initial Catalog=EngineTaskPerf;Trusted_Connection=Yes;Connection Timeout=2" or "10.1.20.20" failed
+[0001.05] Log: Found D3D11 adapter 0: NVIDIA GeForce MX130
+[0001.05] Log: Adapter has 2020MB of dedicated video memory, 0MB of dedicated system memory, and 2075MB of shared system memory
+[0001.12] Log: Found D3D11 adapter 1: Intel(R) UHD Graphics 620
+[0001.12] Log: Adapter has 128MB of dedicated video memory, 0MB of dedicated system memory, and 3967MB of shared system memory
+[0001.14] Log: Found D3D11 adapter 2: Microsoft Basic Render Driver
+[0001.14] Log: Adapter has 0MB of dedicated video memory, 0MB of dedicated system memory, and 4039MB of shared system memory
+[0001.21] Log: Shader platform (RHI): PC-D3D-SM3
+[0001.27] Log: PhysX GPU Support: DISABLED
+[0003.53] Log: 57164 objects as part of root set at end of initial load.
+[0003.53] Log: 0 out of 0 bytes used by permanent object pool.
+[0003.53] Log: Initializing Engine...
+[0007.66] Log: Steam Client API is unavailable
+[0007.69] Warning: Warning, Failed to load 'Class None.': Failed to find object 'Class None.'
+[0007.69] Warning: Warning, Failed to find object 'Class None.'
+[0007.69] Warning: Warning, Failed to load 'Class None.': Failed to find object 'Class None.'
+[0007.69] Warning: Warning, Failed to find object 'Class None.'
+[0007.69] Warning: Warning, Failed to load 'Class None.': Failed to find object 'Class None.'
+[0007.69] Warning: Warning, Failed to find object 'Class None.'
+[0007.69] Warning: Warning, Failed to load 'Class None.': Failed to find object 'Class None.'
+[0007.69] Warning: Warning, Failed to find object 'Class None.'
+[0007.69] Log: LoadMap: LegalLevel?Name=Player?Team=255
+[0007.71] Log: Game class is 'GameInfo'
+[0007.76] Log: Primary PhysX scene will be in software.
+[0007.76] Log: Creating Primary PhysX Scene.
+[0007.76] Log: Bringing World legallevel.TheWorld up for play (0) at 2020.07.21-23.00.56
+[0007.77] Log: Bringing up level for play took: 0.048207
+[0007.77] Log: ########### Finished loading level: 0.078134 seconds
+[0007.77] Log: Initializing Engine Completed
+[0007.77] Log: >>>>>>>>>>>>>> Initial startup: 7.77s <<<<<<<<<<<<<<<
+[0007.83] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0007.83] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0014.91] Log: LoadMap: Level_01?Name=Player?Team=255?game=GoatGame.GGGameInfo
+[0014.91] Log: --- LOADING MOVIE START ---
+[0019.80] Log: Game class is 'GGGameInfo'
+[0020.91] Log: Primary PhysX scene will be in software.
+[0020.91] Log: Creating Primary PhysX Scene.
+[0020.97] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_609 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01) No geometries in FKAggregateGeom.
+[0020.97] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_609 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01
+[0020.99] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_8654 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01) No geometries in FKAggregateGeom.
+[0021.00] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_8654 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01
+[0021.14] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.FogVolumeSphericalDensityInfo_0 Component: StaticMeshComponent_319 StaticMesh: EngineMeshes.Sphere) Cannot 3D-Scale rigid-body primitives (sphere, box, sphyl).
+[0021.14] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.FogVolumeSphericalDensityInfo_0 Component: StaticMeshComponent_319 StaticMesh: EngineMeshes.Sphere
+[0021.16] Log: Bringing World level_01.TheWorld up for play (0) at 2020.07.21-23.01.10
+[0021.50] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.62] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.63] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0021.65] Log: Bringing up level for play took: 1.846813
+[0021.65] ScriptLog: CREATE ANALYTICS MANAGER GGAnalyticsManager_0
+[0021.65] Log: ########### Finished loading level: 6.738536 seconds
+[0022.69] Error: Can't start an online game that hasn't been created
+[0022.74] Log: ZELC: Component 'GoatThrone.Mesh.GoatThrone' with Owner 'GoatThrone.Mesh.GoatThrone' returned normal with incorrect length (0.000000).  ChkActor: InterpActor_14 (InterpActor level_01.TheWorld:PersistentLevel.InterpActor_14)
+[0022.75] Log: ZELC: Component 'GoatThrone.Mesh.GoatThrone' with Owner 'GoatThrone.Mesh.GoatThrone' returned normal with incorrect length (0.000000).  ChkActor: InterpActor_12 (InterpActor level_01.TheWorld:PersistentLevel.InterpActor_12)
+[0023.51] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0023.51] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0023.53] Log: AInternetLink Resolve failed with error code 11001
+[0023.73] Log: --- LOADING MOVIE TIME: 8.82 sec ---
+[0025.38] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0025.38] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0025.39] DevDlc: Looking for DLC...
+[0025.39] Log: WE ARE LOOKING FOR MODS IN:../../GoatGame/Mods/ 
+[0025.39] ScriptLog: flushing the analytics data now
+[0029.34] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePa

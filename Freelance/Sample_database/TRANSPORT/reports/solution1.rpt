@@ -1,0 +1,61 @@
+mysql> create database xyz001;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use xyz001;
+Database changed
+
+mysql> create user 'peter' identified by 'password1';
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> CREATE USER 'alex' IDENTIFIED BY 'password2';
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> CREATE ROLE 'driver', 'admin';
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> GRANT SELECT ON xyz001.* TO 'admin';
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> GRANT SELECT ON xyz001.driver TO 'driver' WITH GRANT OPTION;
+Query OK, 0 rows affected (0.12 sec)
+
+mysql>  GRANT SELECT ON xyz001.tripleg TO 'driver';        GRANT INSERT, UPDATE, DELETE ON xyz001.tripleg TO 'driver';
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE VIEW driver_EMPLOYEE AS    SELECT         FNAME, INITIALS, LNAME    FROM        EMPLOYEE;           GRANT SELECT ON driver_EMPLOYEE TO 'driver';
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>  GRANT INSERT ON EMPLOYEE TO 'admin';
+Query OK, 0 rows affected (0.13 sec)
+
+mysql>  GRANT CREATE ON xyz001.* TO 'admin';
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> GRANT CREATE VIEW ON xyz001.* TO 'admin';
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> CREATE VIEW trip_in_2018 AS    SELECT         *    FROM        xyz001.trip    WHERE        EXTRACT(YEAR FROM TDATE) = '2018';           GRANT SELECT ON trip_in_2018 TO 'admin';
+Query OK, 0 rows affected (0.15 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> GRANT driver to admin;        GRANT admin TO 'peter';        GRANT driver TO 'alex';
+Query OK, 0 rows affected (0.13 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> ALTER USER 'peter' WITH MAX_USER_CONNECTIONS 10;        ALTER USER 'alex' WITH MAX_USER_CONNECTIONS 50;
+Query OK, 0 rows affected (0.06 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql>  CREATE USER 'jeff' IDENTIFIED BY 'password3'       ACCOUNT LOCK;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> exit

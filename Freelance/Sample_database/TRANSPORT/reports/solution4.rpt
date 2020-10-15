@@ -1,0 +1,591 @@
+mysql> use xyz001;
+Database changed
+mysql> CREATE TABLE xyz001.audit_general_log (                table_name varchar(50),                modified_date date) ;
+Query OK, 0 rows affected (0.23 sec)
+
+mysql> CREATE TRIGGER `xyz001`.`admin_AFTER_INSERT` AFTER   INSERT ON `admin` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Admin',     curdate()  );CREATE TRIGGER `xyz001`.`admin_AFTER_UPDATE` AFTER UPDATE   ON `admin` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Admin',     curdate()  );CREATE TRIGGER `xyz001`.`admin_AFTER_DELETE` AFTER   DELETE ON `admin` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Admin',     curdate()  );CREATE TRIGGER `xyz001`.`driver_AFTER_INSERT` AFTER   INSERT ON `driver` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Driver',     curdate()  );CREATE TRIGGER `xyz001`.`driver_AFTER_UPDATE` AFTER UPDATE   ON `driver` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Driver',     curdate()  );CREATE TRIGGER `xyz001`.`driver_AFTER_DELETE` AFTER   DELETE ON `driver` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Driver',     curdate()  );CREATE TRIGGER `xyz001`.`employee_AFTER_INSERT` AFTER   INSERT ON `employee` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Employee',     curdate()  );CREATE TRIGGER `xyz001`.`employee_AFTER_UPDATE` AFTER UPDATE   ON `employee` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Employee',     curdate()  );CREATE TRIGGER `xyz001`.`employee_AFTER_DELETE` AFTER   DELETE ON `employee` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Employee',     curdate()  );CREATE TRIGGER `xyz001`.`trip_AFTER_INSERT` AFTER   INSERT ON `trip` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Trip',     curdate()  );CREATE TRIGGER `xyz001`.`trip_AFTER_UPDATE` AFTER UPDATE   ON `trip` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Trip',     curdate()  );CREATE TRIGGER `xyz001`.`trip_AFTER_DELETE` AFTER   DELETE ON `trip` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Trip',     curdate()  );CREATE TRIGGER `xyz001`.`tripleg_AFTER_INSERT` AFTER   INSERT ON `tripleg` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Trip_leg',     curdate()  );CREATE TRIGGER `xyz001`.`tripleg_AFTER_UPDATE` AFTER UPDATE   ON `tripleg` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Trip_leg',     curdate()  );CREATE TRIGGER `xyz001`.`tripleg_AFTER_DELETE` AFTER   DELETE ON `tripleg` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Trip_leg',     curdate()  );CREATE TRIGGER `xyz001`.`truck_AFTER_INSERT` AFTER   INSERT ON `truck` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Truck',     curdate()  );CREATE TRIGGER `xyz001`.`truck_AFTER_UPDATE` AFTER UPDATE   ON `truck` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Truck',     curdate()  );CREATE TRIGGER `xyz001`.`truck_AFTER_DELETE` AFTER   DELETE ON `truck` FOR EACH ROW INSERT INTO xyz001.audit_general_log(table_name, modified_date) values   (    'Truck',     curdate()  );
+Query OK, 0 rows affected (0.40 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 0 rows affected (0.06 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.10 sec)
+
+Query OK, 0 rows affected (0.10 sec)
+
+Query OK, 0 rows affected (0.11 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.10 sec)
+
+Query OK, 0 rows affected (0.11 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+Query OK, 0 rows affected (0.11 sec)
+
+Query OK, 0 rows affected (0.09 sec)
+
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> create database csit115;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use csit115;
+Database changed
+mysql> /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *//* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */CREATE TABLE EMPLOYEE(ENUM     DECIMAL(12)NOT NULL,FNAME    VARCHAR(50)NOT NULL,INITIALS    VARCHAR(5)    NULL,LNAME       VARCHAR(50) NOT NULL,DOB     DATE            NULL,BLDG        DECIMAL(3) NOT NULL,STREET      VARCHAR(50)NOT NULL,SUBURB      VARCHAR(50)NOT NULL,STATE    VARCHAR(5)NOT NULL,ZIPCODE     DECIMAL(4)NOT NULL, CONSTRAINT EMPLOYEE_PKEY PRIMARY KEY(ENUM) );/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */CREATE TABLE DRIVER(ENUM     DECIMAL(12) NOT NULL,LNUM     DECIMAL(8) NOT NULL,STATUS     VARCHAR(10) NOT NULL, CONSTRAINT DRIVER_PKEY PRIMARY KEY(ENUM), CONSTRAINT DRIVER_UNIQUE UNIQUE(LNUM), CONSTRAINT DRIVER_FKEY FOREIGN KEY(ENUM) REFERENCES EMPLOYEE(ENUM), CONSTRAINT DRIVER_STATUS CHECK ( STATUS IN ('AVAILABLE', 'BUSY', 'ON LEAVE')) );/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */CREATE TABLE ADMIN(ENUM     DECIMAL(12) NOT NULL,POSITION    VARCHAR(50) NOT NULL, CONSTRAINT ADMIN_PKEY PRIMARY KEY(ENUM), CONSTRAINT ADMIN_FKEY FOREIGN KEY(ENUM) REFERENCES EMPLOYEE(ENUM) );/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */CREATE TABLE TRUCK(REGNUM     VARCHAR(10) NOT NULL,CAPACITY    DECIMAL(7) NOT NULL,WEIGHT     DECIMAL(7) NOT NULL,STATUS     VARCHAR(10) NOT NULL, CONSTRAINT TRUCK_PKEY PRIMARY KEY(REGNUM), CONSTRAINT TRUCK_STATUS CHECK ( STATUS IN ('AVAILABLE', 'USED', 'MAINTAINED')), CONSTRAINT TRUCK_WEIGHT CHECK ( WEIGHT > 0.0 AND WEIGHT < 500000 ), CONSTRAINT TRUCK_CAPACITY CHECK ( CAPACITY > 0.0 AND CAPACITY < 100000 ) );/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */CREATE TABLE TRIP(TNUM     DECIMAL(10) NOT NULL,LNUM     DECIMAL(8) NOT NULL,REGNUM     VARCHAR(10) NOT NULL,TDATE       DATE NOT NULL, CONSTRAINT TRIP_PKEY PRIMARY KEY (TNUM), CONSTRAINT TRIP_CKEY UNIQUE (LNUM, REGNUM, TDATE), CONSTRAINT TRIP_FKEY1 FOREIGN KEY (LNUM) REFERENCES DRIVER(LNUM), CONSTRAINT TRIP_FKEY2 FOREIGN KEY (REGNUM) REFERENCES TRUCK(REGNUM) );/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */CREATE TABLE TRIPLEG(TNUM     DECIMAL(10) NOT NULL,LEGNUM     DECIMAL(2) NOT NULL,DEPARTURE   VARCHAR(30) NOT NULL,DESTINATION VARCHAR(30) NOT NULL, CONSTRAINT TRIPLEG_PKEY PRIMARY KEY (TNUM, LEGNUM), CONSTRAINT TRIPLEG_UNIQUE UNIQUE(TNUM, DEPARTURE, DESTINATION), CONSTRAINT TRIPLEG_FKEY1 FOREIGN KEY (TNUM) REFERENCES TRIP(TNUM) );/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ *//* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+Query OK, 0 rows affected, 1 warning (0.20 sec)
+
+Query OK, 0 rows affected, 1 warning (0.24 sec)
+
+Query OK, 0 rows affected, 1 warning (0.22 sec)
+
+Query OK, 0 rows affected, 1 warning (0.30 sec)
+
+Query OK, 0 rows affected, 1 warning (0.38 sec)
+
+Query OK, 0 rows affected, 1 warning (0.44 sec)
+
+mysql> INSERT INTO EMPLOYEE VALUES( 1, 'John', NULL, 'Smith', NULL, 42, 'Victoria St.', 'Hurstville', 'NSW', 2456 );INSERT INTO EMPLOYEE VALUES( 2, 'Peter', NULL, 'Taylor', '1970-01-12', 42, 'Victoria St.', 'Hurstville', 'NSW', 2456 );INSERT INTO EMPLOYEE VALUES( 3, 'John', NULL, 'Doe', '1966-03-23', 12, 'Station St.', 'Dapto', 'NSW', 2530 );INSERT INTO EMPLOYEE VALUES( 4, 'John', NULL, 'Gray', '1988-05-05', 16, 'Station St.', 'Dapto', 'NSW', 2530 );INSERT INTO EMPLOYEE VALUES( 5, 'Adam', NULL, 'Taylor', '1980-01-01', 42, 'Church St.', 'City', 'NSW', 2300 );INSERT INTO EMPLOYEE VALUES( 6, 'Michael', NULL, 'Jones', '1975-03-05', 23, 'Waterloo Ave.', 'Surry Hills', 'NSW', 2502 );INSERT INTO EMPLOYEE VALUES( 7, 'Frederic', NULL, 'Jones', NULL, 3, 'Victoria St.', 'Redfern', 'NSW', 2420 );INSERT INTO EMPLOYEE VALUES( 8, 'Peter', NULL, 'O''Brien', '1983-02-28', 19, 'Lucas Dr.', 'Horsley', 'NSW', 2530 );INSERT INTO EMPLOYEE VALUES( 9, 'John', NULL, 'Lucas', '1966-12-16', 20, 'Huxley St.', 'Horsley', 'NSW', 2530 );INSERT INTO EMPLOYEE VALUES( 10, 'John', NULL, 'Fox', '1975-10-15', 18, 'Victoria St.', 'Hurstville', 'NSW', 2456 );INSERT INTO EMPLOYEE VALUES( 11, 'Adam', NULL, 'Fox', NULL, 45, 'Victoria St.', 'Hurstville', 'NSW', 2456 );INSERT INTO EMPLOYEE VALUES( 12, 'Phillip', NULL, ',Cox', '1984-12-12', 5, 'The Avenue', 'Rockdale', 'NSW', 2300 );INSERT INTO EMPLOYEE VALUES( 13, 'Andrew', 'K', 'Smith', '1969-04-04', 42, 'Bambaramba Ave.', 'Pennant Hills', 'NSW', 2556 );INSERT INTO EMPLOYEE VALUES( 14, 'Andrew', 'R', 'Smith', '1992-04-01', 67, 'King Cr.', 'Hurstville', 'NSW', 2456 );INSERT INTO EMPLOYEE VALUES( 15, 'Michael', NULL, 'Potter', '1995-04-01', 568, 'Bong Bong St.', 'Horsley', 'NSW', 2530 );INSERT INTO EMPLOYEE VALUES( 16, 'Harry', NULL, 'Potter', '1995-04-01', 568, 'Bong Bong St.', 'Horsley', 'NSW', 2530 );INSERT INTO EMPLOYEE VALUES( 17, 'James', NULL, 'Bond', NULL, 007, 'Alan Bond St.', 'Perth', 'WA', 6000 );INSERT INTO EMPLOYEE VALUES( 18, 'Paris', NULL, 'Hilton', NULL, 1, 'Hilton St.', 'Melbourne', 'Vic', 3000 );INSERT INTO EMPLOYEE VALUES( 19, 'Lady', NULL, 'Gaga', NULL, 3, 'Pork St.', 'Hobart', 'Tas', 7000 );INSERT INTO EMPLOYEE VALUES( 20, 'Robin', NULL, 'Hood', NULL, 6, 'Nottingham Pl.', 'Sydney', 'NSW', 2000 );INSERT INTO EMPLOYEE VALUES( 21, 'Lars', 'Q', 'Peterson', NULL, 6, 'Northfields Ave.', 'Wollongong', 'NSW', 2522 );INSERT INTO DRIVER VALUES( 1, 10001, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 2, 10008, 'ON LEAVE' );INSERT INTO DRIVER VALUES( 3, 10002, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 4, 10004, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 5, 10003, 'ON LEAVE' );INSERT INTO DRIVER VALUES( 6, 10012, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 7, 20002, 'BUSY' );INSERT INTO DRIVER VALUES( 8, 20003, 'BUSY' );INSERT INTO DRIVER VALUES( 9, 30005, 'BUSY' );INSERT INTO DRIVER VALUES( 10, 40002, 'BUSY' );INSERT INTO DRIVER VALUES( 11, 20045, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 12, 20055, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 13, 20065, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 14, 10305, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 15, 10345, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 16, 10705, 'AVAILABLE' );INSERT INTO DRIVER VALUES( 17, 40005, 'AVAILABLE' );INSERT INTO ADMIN VALUES( 18, 'SUPPORT' );INSERT INTO ADMIN VALUES( 19, 'DIRECTOR' );INSERT INTO ADMIN VALUES( 20, 'CEO' );INSERT INTO TRUCK VALUES( 'PKR768', 1234, 3000, 'AVAILABLE' );INSERT INTO TRUCK VALUES( 'SST005', 12000, 50000, 'USED' );INSERT INTO TRUCK VALUES( 'QRT834', 5550, 400, 'USED' );INSERT INTO TRUCK VALUES( 'LUCY01', 100, 300, 'AVAILABLE' );INSERT INTO TRUCK VALUES( 'KKK007', 10000, 3000, 'MAINTAINED' );INSERT INTO TRUCK VALUES( 'SYF777', 3333, 4566, 'MAINTAINED' );INSERT INTO TRUCK VALUES( 'PKR008', 22000, 8800, 'AVAILABLE' );INSERT INTO TRUCK VALUES( 'XCF003', 30000, 10000, 'AVAILABLE' );INSERT INTO TRUCK VALUES( 'GFT008', 40000, 15000, 'AVAILABLE' );INSERT INTO TRUCK VALUES( 'LUCY02', 43000, 3000, 'AVAILABLE' );INSERT INTO TRUCK VALUES( 'AL08UK', 50000, 5000, 'AVAILABLE' );INSERT INTO TRIP VALUES( 1, 10001, 'PKR768', '2015-01-12' );INSERT INTO TRIP VALUES( 2, 10001, 'SYF777', '2015-02-20' );INSERT INTO TRIP VALUES( 3, 10001, 'KKK007', '2015-03-12' );INSERT INTO TRIP VALUES( 4, 10001, 'PKR768', '2015-06-29' );INSERT INTO TRIP VALUES( 5, 20002, 'PKR768', '2015-01-12' );INSERT INTO TRIP VALUES( 6, 10002, 'SYF777', '2015-02-20' );INSERT INTO TRIP VALUES( 7, 30005, 'KKK007', '2015-03-12' );INSERT INTO TRIP VALUES( 8, 10001, 'PKR768', '2015-01-13' );INSERT INTO TRIP VALUES( 9, 10002, 'QRT834', '2015-09-17' );INSERT INTO TRIP VALUES(10, 30005, 'KKK007', '2015-12-15' );INSERT INTO TRIP VALUES(11, 10003, 'SST005', '2016-01-23' );INSERT INTO TRIP VALUES(12, 10002, 'PKR768', '2016-03-12' );INSERT INTO TRIP VALUES(13, 20002, 'QRT834', '2015-04-23' );INSERT INTO TRIP VALUES(14, 20002, 'PKR008', '2015-04-23' );INSERT INTO TRIP VALUES(15, 30005, 'PKR768', '2015-05-24' );INSERT INTO TRIP VALUES(16, 30005, 'SST005', '2014-08-02' );INSERT INTO TRIP VALUES(17, 20002, 'QRT834', '2014-09-17' );INSERT INTO TRIP VALUES(18, 10001, 'KKK007', '2014-12-15' );INSERT INTO TRIP VALUES(19, 30005, 'SST005', '2016-01-23' );INSERT INTO TRIP VALUES(20, 10003, 'PKR768', '2016-03-12' );INSERT INTO TRIP VALUES(21, 10001, 'QRT834', '2012-04-23' );INSERT INTO TRIP VALUES(22, 30005, 'PKR008', '2012-04-23' );INSERT INTO TRIP VALUES(23, 10003, 'PKR768', '2012-05-25' );INSERT INTO TRIP VALUES(24, 20002, 'SST005', '2012-08-02' );INSERT INTO TRIP VALUES(25, 10001, 'PKR768', '2014-01-12' );INSERT INTO TRIP VALUES(26, 10001, 'SYF777', '2013-02-20' );INSERT INTO TRIP VALUES(27, 20002, 'KKK007', '2013-03-12' );INSERT INTO TRIP VALUES(28, 30005, 'PKR768', '2010-06-29' );INSERT INTO TRIP VALUES(29, 10001, 'QRT834', '2010-09-17' );INSERT INTO TRIP VALUES(30, 10002, 'KKK007', '2010-12-15' );INSERT INTO TRIP VALUES(31, 10003, 'SST005', '2010-01-23' );INSERT INTO TRIP VALUES(32, 20002, 'PKR768', '2010-03-12' );INSERT INTO TRIP VALUES(33, 30005, 'QRT834', '2003-04-23' );INSERT INTO TRIP VALUES(34, 30005, 'PKR008', '2004-04-23' );INSERT INTO TRIP VALUES(35, 10001, 'PKR768', '2017-05-24' );INSERT INTO TRIPLEG VALUES( 1, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES( 1, 2, 'Melbourne', 'Hobart');INSERT INTO TRIPLEG VALUES( 1, 3, 'Hobart', 'Perth');INSERT INTO TRIPLEG VALUES( 1, 4, 'Perth', 'Adelaide');INSERT INTO TRIPLEG VALUES( 1, 5, 'Adelaide', 'Wollongong');INSERT INTO TRIPLEG VALUES( 2, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES( 3, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES( 4, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES( 5, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES( 6, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES( 7, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES( 8, 1, 'Sydney', 'Newcastle');INSERT INTO TRIPLEG VALUES( 8, 2, 'Newcastle', 'Brisbane');INSERT INTO TRIPLEG VALUES( 8, 3, 'Brisbane', 'Perth');INSERT INTO TRIPLEG VALUES( 9, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(10, 1, 'Sydney', 'Wollongong');INSERT INTO TRIPLEG VALUES(11, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES(12, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES(13, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(13, 2, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES(14, 1, 'Wollongong', 'Sydney');INSERT INTO TRIPLEG VALUES(15, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(16, 1, 'Sydney', 'Wollongong');INSERT INTO TRIPLEG VALUES(17, 1, 'Sydney', 'Wollongong');INSERT INTO TRIPLEG VALUES(17, 2, 'Wollongong', 'Sydney');INSERT INTO TRIPLEG VALUES(18, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES(19, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES(20, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(21, 1, 'Wollongong', 'Sydney');INSERT INTO TRIPLEG VALUES(22, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES(23, 1, 'Wollongong', 'Sydney');INSERT INTO TRIPLEG VALUES(24, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(25, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES(25, 2, 'Sydney', 'Perth' );INSERT INTO TRIPLEG VALUES(25, 3, 'Perth', 'Sydney');INSERT INTO TRIPLEG VALUES(25, 4, 'Sydney', 'Brisbane');INSERT INTO TRIPLEG VALUES(26, 1, 'Brisbane', 'Sydney'); INSERT INTO TRIPLEG VALUES(27, 1, 'Sydney', 'Wollongong');INSERT INTO TRIPLEG VALUES(28, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(28, 2, 'Melbourne', 'Perth');INSERT INTO TRIPLEG VALUES(29, 1, 'Sydney', 'Perth');INSERT INTO TRIPLEG VALUES(30, 1, 'Melbourne', 'Sydney');INSERT INTO TRIPLEG VALUES(30, 2, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(31, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(32, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(33, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(34, 1, 'Wollongong', 'Sydney');INSERT INTO TRIPLEG VALUES(35, 1, 'Sydney', 'Melbourne');INSERT INTO TRIPLEG VALUES(35, 2, 'Melbourne', 'Adelaide');INSERT INTO TRIPLEG VALUES(35, 3, 'Adelaide', 'Perth');INSERT INTO TRIPLEG VALUES(35, 4, 'Perth', 'Sydney');COMMIT;
+Query OK, 1 row affected (0.36 sec)
+
+Query OK, 1 row affected (0.15 sec)
+
+Query OK, 1 row affected (0.11 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.11 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.09 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.11 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.08 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.08 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.11 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.16 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.02 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.08 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.05 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.09 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.03 sec)
+
+Query OK, 1 row affected (0.07 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 1 row affected (0.06 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> CREATE TRIGGER `csit115`.`admin_AFTER_INSERT` 
+    -> AFTER 
+    ->   INSERT ON `admin` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Admin', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> CREATE TRIGGER `csit115`.`admin_AFTER_UPDATE` 
+    -> AFTER 
+    -> UPDATE 
+    ->   ON `admin` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Admin', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TRIGGER `csit115`.`admin_AFTER_DELETE` 
+    -> AFTER 
+    ->   DELETE ON `admin` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Admin', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> CREATE TRIGGER `csit115`.`driver_AFTER_INSERT` 
+    -> AFTER 
+    ->   INSERT ON `driver` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Driver', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> CREATE TRIGGER `csit115`.`driver_AFTER_UPDATE` 
+    -> AFTER 
+    -> UPDATE 
+    ->   ON `driver` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Driver', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> CREATE TRIGGER `csit115`.`driver_AFTER_DELETE` 
+    -> AFTER 
+    ->   DELETE ON `driver` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Driver', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TRIGGER `csit115`.`employee_AFTER_INSERT` 
+    -> AFTER 
+    ->   INSERT ON `employee` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Employee', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> CREATE TRIGGER `csit115`.`employee_AFTER_UPDATE` 
+    -> AFTER 
+    -> UPDATE 
+    ->   ON `employee` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Employee', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> CREATE TRIGGER `csit115`.`employee_AFTER_DELETE` 
+    -> AFTER 
+    ->   DELETE ON `employee` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Employee', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> CREATE TRIGGER `csit115`.`trip_AFTER_INSERT` 
+    -> AFTER 
+    ->   INSERT ON `trip` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Trip', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> CREATE TRIGGER `csit115`.`trip_AFTER_UPDATE` 
+    -> AFTER 
+    -> UPDATE 
+    ->   ON `trip` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Trip', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TRIGGER `csit115`.`trip_AFTER_DELETE` 
+    -> AFTER 
+    ->   DELETE ON `trip` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Trip', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> CREATE TRIGGER `csit115`.`tripleg_AFTER_INSERT` 
+    -> AFTER 
+    ->   INSERT ON `tripleg` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Trip_leg', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TRIGGER `csit115`.`tripleg_AFTER_UPDATE` 
+    -> AFTER 
+    -> UPDATE 
+    ->   ON `tripleg` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Trip_leg', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> CREATE TRIGGER `csit115`.`tripleg_AFTER_DELETE` 
+    -> AFTER 
+    ->   DELETE ON `tripleg` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Trip_leg', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TRIGGER `csit115`.`truck_AFTER_INSERT` 
+    -> AFTER 
+    ->   INSERT ON `truck` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Truck', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TRIGGER `csit115`.`truck_AFTER_UPDATE` 
+    -> AFTER 
+    -> UPDATE 
+    ->   ON `truck` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Truck', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> CREATE TRIGGER `csit115`.`truck_AFTER_DELETE` 
+    -> AFTER 
+    ->   DELETE ON `truck` FOR EACH ROW INSERT INTO csit115.audit_general_log(table_name, modified_date) 
+    -> values 
+    ->   (
+    ->     'Truck', 
+    ->     curdate()
+    ->   );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> SELECT COUNT(*)FROM EMPLOYEE;INSERT INTO EMPLOYEE VALUES( 21, 'Mary', 'P', 'Doe', '1978-01-13', 15, 'Station St.', 'Horsley', 'NSW', 2530 );SELECT TNUM, COUNT(*)FROM TRIPLEGHAVING COUNT(*) > 10;INSERT INTO EMPLOYEE VALUES( 22, 'Janusz', 'R', 'Getta', '1916-01-01', 10, 'Ellenborough Pl.', 'Horsley', 'NSW', 2530 );INSERT INTO EMPLOYEE VALUES( 22, 'Janusz', 'R', 'Getta', '1916-01-01', 10, 'Ellenborough Pl.', 'Horsley', 'NSW', 2530 );SELECT REGNUM, CAPACITY, STATUSFROM TRUCKWHERE CAPACITY BETWEEN 2000 AND 4000;UPDATE TRIPLEGSET DEPARTURE = 'Perth'WHERE DEPARTURE = 'PERTH';INSERT INTO ADMIN VALUES( 21, 'PROGRAMMER' );INSERT INTO ADMIN VALUES( 22, 'DBA' );DELETE FROM ADMIN WHERE ENUM = 20;SELECT FNAME, LNAMEFROM EMPLOYEEWHERE STATE = 'NSW' AND( upper(SUBURB) = 'HURSTVILLE' AND upper(STREET) = 'VICTORIA ST.' OR upper(SUBURB) = 'PENNANT HILLS' );DELETE FROM EMPLOYEE WHERE ENUM = 20;UPDATE ADMIN SET POSITION = 'BOSS' WHERE ENUM =  18;SELECT REGNUMFROM TRUCK ORDER BY STATUS ASC, REGNUM DESC;SELECT COUNT(DISTINCT DEPARTURE)FROM TRIPLEGWHERE LEGNUM = 1;CREATE TABLE MESSAGE( mbody VARCHAR(25), CONSTRAINT MESSAGE_PKEY PRIMARY KEY (mbody) );SELECT LNUM, COUNT(*)FROM TRIPGROUP BY LNUM;INSERT INTO MESSAGE( 'Hello world !!!' );COMMIT;INSERT INTO EMPLOYEE VALUES( 02, 'Janusz', 'R', 'Getta', '1916-01-01', 10, 'Ellenborough Pl.', 'Horsley', 'NSW', 2530 );SELECT REGNUM, COUNT(*)FROM TRIPGROUP BY REGNUMWHERE COUNT(*) > 5;SELECT FNAME, LNAMEFROM EMPLOYEEWHERE INITIALS IS NULL AND DOB IS NOT NULL;ALTER TABLE MESSAGE MODIFY mbody VARCHAR(50);SELECT FNAME, LNAMEFROM EMPLOYEEWHERE INITIALS IS NULL AND DOB IS NOT NULL;UPDATE MESSAGE SET mbody = 'Hello myworld !!!' WHERE mbody LIKE 'Hello%';SELECT TNUM, LNUM, REGNUMFROM TRIPWHERE TDATE > '2016-02-01' AND TDATE <= DATE_ADD('2016-02-01', INTERVAL 30 DAY);ROLLBACK;DELETE FROM ADMIN WHERE ENUM < 18;DROP TABLE MESSAGE;COMMIT;SELECT COUNT(DISTINCT TNUM)FROM TRIPLEGWHERE DEPARTURE LIKE '%y%' OR DESTINATION LIKE '%y%';SELECT COUNT(*)FROM EMPLOYEEINSERT INTO EMPLOYEE VALUES( 21, 'Mary', 'P', 'Doe', '1978-01-13', 15, 'Station St.', 'Horsley', 'NSW', 2530 );SELECT TNUM, COUNT(*)FROM TRIPLEGGROUP BY TNUMHAVING COUNT(*) > 10;INSERT INTO EMPLOYEE VALUES( 22, 'Janusz', 'R', 'Getta', '1916-01-01', 10, 'Ellenborough Pl.', 'Horsley', 'NSW', 2530 );INSERT INTO EMPLOYEE VALUES( 22, 'Janusz', 'R', 'Getta', '1916-01-01', 10, 'Ellenborough Pl.', 'Horsley', 'NSW', 2530 );SELECT *FROM TRUCKWHERE CAPACITY BETWEEN 2000 AND 4000;
++----------+
+| COUNT(*) |
++----------+
+|       21 |
++----------+
+1 row in set (0.01 sec)
+
+ERROR 1062 (23000): Duplicate entry '21' for key 'PRIMARY'
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'COUNT(*) > 10' at line 1
+ERROR 1146 (42S02): Table 'csit115.audit_general_log' doesn't exist
+ERROR 1146 (42S02): Table 'csit115.audit_general_log' doesn't exist
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CAPACITY BETWEEN 2000 AND 4000' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= 'Perth'WHERE DEPARTURE = 'PERTH'' at line 1
+ERROR 1146 (42S02): Table 'csit115.audit_general_log' doesn't exist
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`csit115`.`admin`, CONSTRAINT `ADMIN_FKEY` FOREIGN KEY (`ENUM`) REFERENCES `employee` (`ENUM`))
+ERROR 1146 (42S02): Table 'csit115.audit_general_log' doesn't exist
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'STATE = 'NSW' AND( upper(SUBURB) = 'HURSTVILLE' AND upper(STREET) = 'VICTORIA...' at line 1
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`csit115`.`admin`, CONSTRAINT `ADMIN_FKEY` FOREIGN KEY (`ENUM`) REFERENCES `employee` (`ENUM`))
+ERROR 1146 (42S02): Table 'csit115.audit_general_log' doesn't exist
+ERROR 1054 (42S22): Unknown column 'REGNUMFROM' in 'field list'
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= 1' at line 1
+Query OK, 0 rows affected, 1 warning (0.17 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY LNUM' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Hello world !!!' )' at line 1
+Query OK, 0 rows affected (0.00 sec)
+
+ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY REGNUMWHERE COUNT(*) > 5' at line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INITIALS IS NULL AND DOB IS NOT NULL' at line 1
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INITIALS IS NULL AND DOB IS NOT NULL' at line 1
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'TDATE > '2016-02-01' AND TDATE <= DATE_ADD('2016-02-01', INTERVAL 30 DAY)' at line 1
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.16 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIKE '%y%' OR DESTINATION LIKE '%y%'' at line 1
+ERROR 1327 (42000): Undeclared variable: EMPLOYEE
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY TNUMHAVING COUNT(*) > 10' at line 1
+ERROR 1146 (42S02): Table 'csit115.audit_general_log' doesn't exist
+ERROR 1146 (42S02): Table 'csit115.audit_general_log' doesn't exist
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BETWEEN 2000 AND 4000' at line 1
+mysql>  select table_name, count(*) total
+    ->           from xyz001.audit_general_log
+    ->         group by table_name;
++------------+-------+
+| table_name | total |
++------------+-------+
+| Admin      |     4 |
+| Employee   |     2 |
++------------+-------+
+2 rows in set (0.04 sec)
+
+mysql> exit

@@ -1,0 +1,266 @@
+Log: Log file open, 07/21/20 14:55:47
+Init: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+Log:  ... running in INSTALLED mode
+DevConfig: GConfig::Find has loaded file:  ..\..\Engine\Config\ConsoleVariables.ini
+Init: Version: 10897
+Init: Epic Internal: 0
+Init: Compiled (32-bit): Mar 21 2014 10:04:59
+Init: Changelist: 1532151
+Init: Command line: 
+Init: Base directory: C:\Program Files (x86)\Coffee Stain Studios\Goat Simulator\Binaries\Win32\
+[0003.56] Init: Computer: LAPTOP-RH6FHV53
+[0003.56] Init: User: zufishanTaj
+[0003.56] Init: CPU Page size=4096, Processors=8
+[0003.56] Init: High frequency timer resolution =10.000000 MHz
+[0003.56] Init: Memory total: Physical=7.9GB (7GB approx) Pagefile=10.6GB Virtual=4.0GB
+[0003.56] Log: Steam Client API initialized 0
+[0003.61] Log: Steam Game Server API initialized 0
+[0003.61] Init: Presizing for 33476 objects not considered by GC, pre-allocating 0 bytes.
+[0003.61] Init: Object subsystem initialized
+[0003.61] DevDataBase: Connection to "Provider=sqloledb;Data Source=production-db;Initial Catalog=EngineTaskPerf;Trusted_Connection=Yes;Connection Timeout=2" or "10.1.20.20" failed
+[0012.66] Log: Found D3D11 adapter 0: NVIDIA GeForce MX130
+[0012.66] Log: Adapter has 2020MB of dedicated video memory, 0MB of dedicated system memory, and 2075MB of shared system memory
+[0014.18] Log: Found D3D11 adapter 1: Intel(R) UHD Graphics 620
+[0014.18] Log: Adapter has 128MB of dedicated video memory, 0MB of dedicated system memory, and 3967MB of shared system memory
+[0015.44] Log: Found D3D11 adapter 2: Microsoft Basic Render Driver
+[0015.44] Log: Adapter has 0MB of dedicated video memory, 0MB of dedicated system memory, and 4039MB of shared system memory
+[0026.72] Log: Shader platform (RHI): PC-D3D-SM3
+[0029.07] Log: PhysX GPU Support: DISABLED
+[0065.53] Log: 57164 objects as part of root set at end of initial load.
+[0065.53] Log: 0 out of 0 bytes used by permanent object pool.
+[0065.53] Log: Initializing Engine...
+[0078.71] Log: Steam Client API is unavailable
+[0078.85] Warning: Warning, Failed to load 'Class None.': Failed to find object 'Class None.'
+[0078.91] Warning: Warning, Failed to find object 'Class None.'
+[0078.91] Warning: Warning, Failed to load 'Class None.': Failed to find object 'Class None.'
+[0078.91] Warning: Warning, Failed to find object 'Class None.'
+[0078.91] Warning: Warning, Failed to load 'Class None.': Failed to find object 'Class None.'
+[0078.91] Warning: Warning, Failed to find object 'Class None.'
+[0078.91] Warning: Warning, Failed to load 'Class None.': Failed to find object 'Class None.'
+[0078.91] Warning: Warning, Failed to find object 'Class None.'
+[0078.91] Log: LoadMap: LegalLevel?Name=Player?Team=255
+[0079.21] Log: Game class is 'GameInfo'
+[0079.62] Log: Primary PhysX scene will be in software.
+[0079.62] Log: Creating Primary PhysX Scene.
+[0079.62] Log: Bringing World legallevel.TheWorld up for play (0) at 2020.07.21-14.57.03
+[0079.62] Log: Bringing up level for play took: 0.402859
+[0079.62] Log: ########### Finished loading level: 0.710520 seconds
+[0080.29] Log: Initializing Engine Completed
+[0080.29] Log: >>>>>>>>>>>>>> Initial startup: 80.29s <<<<<<<<<<<<<<<
+[0081.57] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0081.57] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0088.69] Log: LoadMap: Level_01?Name=Player?Team=255?game=GoatGame.GGGameInfo
+[0088.69] Log: --- LOADING MOVIE START ---
+[0116.65] Log: Game class is 'GGGameInfo'
+[0118.17] Log: Primary PhysX scene will be in software.
+[0118.17] Log: Creating Primary PhysX Scene.
+[0118.30] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_609 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01) No geometries in FKAggregateGeom.
+[0118.30] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_609 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01
+[0118.34] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_8654 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01) No geometries in FKAggregateGeom.
+[0118.34] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_8654 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01
+[0118.64] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.FogVolumeSphericalDensityInfo_0 Component: StaticMeshComponent_319 StaticMesh: EngineMeshes.Sphere) Cannot 3D-Scale rigid-body primitives (sphere, box, sphyl).
+[0118.64] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.FogVolumeSphericalDensityInfo_0 Component: StaticMeshComponent_319 StaticMesh: EngineMeshes.Sphere
+[0118.69] Log: Bringing World level_01.TheWorld up for play (0) at 2020.07.21-14.57.42
+[0119.27] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.41] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.42] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0119.46] Log: Bringing up level for play took: 2.804474
+[0119.46] ScriptLog: CREATE ANALYTICS MANAGER GGAnalyticsManager_0
+[0119.46] Log: ########### Finished loading level: 30.767689 seconds
+[0120.61] Error: Can't start an online game that hasn't been created
+[0120.66] Log: AInternetLink Resolve failed with error code 11001
+[0120.67] Log: ZELC: Component 'GoatThrone.Mesh.GoatThrone' with Owner 'GoatThrone.Mesh.GoatThrone' returned normal with incorrect length (0.000000).  ChkActor: InterpActor_14 (InterpActor level_01.TheWorld:PersistentLevel.InterpActor_14)
+[0120.68] Log: ZELC: Component 'GoatThrone.Mesh.GoatThrone' with Owner 'GoatThrone.Mesh.GoatThrone' returned normal with incorrect length (0.000000).  ChkActor: InterpActor_12 (InterpActor level_01.TheWorld:PersistentLevel.InterpActor_12)
+[0121.49] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0121.49] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0121.75] Log: --- LOADING MOVIE TIME: 33.0 sec ---
+[0122.90] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0122.90] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0122.91] DevDlc: Looking for DLC...
+[0122.91] Log: WE ARE LOOKING FOR MODS IN:../../GoatGame/Mods/ 
+[0122.91] ScriptLog: flushing the analytics data now
+[0156.13] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0156.13] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0167.76] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0167.76] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0187.43] Error: WriteOnlineStats: Ignoring unknown player
+[0187.43] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0187.43] Error: WriteOnlineStats: Ignoring unknown player
+[0187.43] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0187.43] Error: WriteOnlineStats: Ignoring unknown player
+[0187.43] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0187.43] Error: WriteOnlineStats: Ignoring unknown player
+[0187.43] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0187.43] Error: WriteOnlineStats: Ignoring unknown player
+[0187.43] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0212.18] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0212.18] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0216.78] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0216.78] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0224.49] Log: WARNING: Cooking Convex For Actor: level_01.TheWorld:PersistentLevel.GGExplosiveActorWreckable_19 Component: StaticMeshComponent_3 StaticMesh: FuelContainer.Mesh.FuelContainer_Wreck (Scale: 1.000000 1.000000 1.000000) Please go and set PreCachedPhysScale on the mesh to have this scale for RunTime spawned objects.
+[0234.21] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0234.21] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0247.44] Error: WriteOnlineStats: Ignoring unknown player
+[0247.44] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0247.44] Error: WriteOnlineStats: Ignoring unknown player
+[0247.44] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0247.44] Error: WriteOnlineStats: Ignoring unknown player
+[0247.44] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0258.40] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0258.40] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0258.89] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0258.89] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0264.96] Log: Adding a large force ( 3004.957520 -8926.128906 -7188.097168 ) to an object: GGKActor_946
+[0307.42] Error: WriteOnlineStats: Ignoring unknown player
+[0307.42] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0307.42] Error: WriteOnlineStats: Ignoring unknown player
+[0307.42] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0308.44] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0308.44] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0314.07] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0314.07] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0314.07] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0314.07] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0328.60] Log: Adding a large force ( -304.637177 37248.000000 -14624.589844 ) to an object: GGKActor_129
+[0335.48] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0335.48] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0336.95] Log: Adding a large force ( 5451.682617 -8658.095703 -0.132043 ) to an object: GGKActor_1722
+[0340.12] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0340.12] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0353.11] Log: Adding a large force ( -2.578882 -12060.978516 -78.634911 ) to an object: GGKActor_1722
+[0355.70] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0355.70] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0357.70] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0357.70] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0367.41] Error: WriteOnlineStats: Ignoring unknown player
+[0367.41] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0367.41] Error: WriteOnlineStats: Ignoring unknown player
+[0367.41] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0367.41] Error: WriteOnlineStats: Ignoring unknown player
+[0367.41] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0367.77] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0367.77] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0370.94] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0370.94] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0403.83] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0403.83] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0407.35] Error: WriteOnlineStats: Ignoring unknown player
+[0407.35] ScriptWarning: COULD NOT WRITE STATS
+	GGLeaderboardHandler level_01.TheWorld:PersistentLevel.GGPlayerControllerGame_0.GGLeaderboardHandler_0
+	Function GoatGame.GGLeaderboardHandler:FlushLeaderboards:00C1
+[0407.35] ScriptLog: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+[0407.35] ScriptWarning: OnWriteUserFileComplete wasSuccessful:'False' fileName:'GoatProgression' userId:'0x0000000000000000'
+	GGEngine Transient.GGEngine_0
+	Function GoatGame.GGEngine:OnWriteUserFileComplete:00EC
+[0407.36] Log: LoadMap: Level_01?game='GoatGame.GGGameInfo'?Name=Player?Team=255
+[0407.36] Log: --- LOADING MOVIE START ---
+[0443.37] Log: Game class is 'GGGameInfo'
+[0445.32] Log: Primary PhysX scene will be in software.
+[0445.32] Log: Creating Primary PhysX Scene.
+[0445.43] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_609 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01) No geometries in FKAggregateGeom.
+[0445.43] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_609 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01
+[0445.48] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_8654 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01) No geometries in FKAggregateGeom.
+[0445.48] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.StaticMeshActor_8654 Component: StaticMeshComponent_57 StaticMesh: Office_Set_01.Mesh.CSS_Logo_01
+[0445.75] Log: FKAggregateGeom::InstanceNovodexGeom: (Actor: level_01.TheWorld:PersistentLevel.FogVolumeSphericalDensityInfo_0 Component: StaticMeshComponent_319 StaticMesh: EngineMeshes.Sphere) Cannot 3D-Scale rigid-body primitives (sphere, box, sphyl).
+[0445.75] Log: URB_BodyInstance::InitBody : Could not create new Shape: Actor: level_01.TheWorld:PersistentLevel.FogVolumeSphericalDensityInfo_0 Component: StaticMeshComponent_319 StaticMesh: EngineMeshes.Sphere
+[0445.79] Log: Bringing World level_01.TheWorld up for play (0) at 2020.07.21-15.03.09
+[0446.21] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.35] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.35] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.35] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.35] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.36] Log: PlayCustomAnim Partyboy, CustomChildIndex: 1, Animation Not Found!!
+[0446.38] Log: Bringing up level for play took: 3.008616
+[0446.38] Log: ########### Finished loading level: 39.024929 seconds
+[0447.49] Error: Can't start an online game that hasn't been created
+[0447.56] Log: AInternetLink Resolve failed with error code 11001
+[0447.57] Log: ZELC: Component 'GoatThrone.Mesh.GoatThrone' with Owner 'GoatThrone.Mesh.GoatThrone' returned normal with incorrect length (0.000000).  ChkActor: InterpActor_14 (InterpActor level_01.TheWorld:PersistentLevel.InterpActor_14)
+[0447.58] Log: ZELC: Component 'GoatThrone.Mesh.GoatThrone' with Owner 'GoatThrone.Mesh.GoatThrone' returned normal with incorrect length (0.000000).  ChkActor: InterpActor_12 (InterpActor level_01.TheWorld:PersistentLevel.InterpActor_12)
+[0448.44] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0448.44] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0448.62] Log: --- LOADING MOVIE TIME: 41.2 sec ---
+[0450.21] Warning: Warning, Failed to load 'SwfMovie ?INT?GFxUI.IME.MoviePath?': Failed to find object 'SwfMovie ?INT?GFxUI.IME.MoviePath?'
+[0450.21] Log: GFx attempted to load missing object [?INT?GFxUI.IME.MoviePath?]
+[0450.22] DevDlc: Looking for DLC...
+[0450.22] Log: WE ARE LOOKING FOR MODS IN:../../GoatGame/Mods/ 
+[0450.22] ScriptLog: flushing the analytics data now
+[0452.72] Log: Closing by request
+[0452.72] Log: appRequestExit(0)
+[0453.32] Exit: Preparing to exit.
+[0454.48] Exit: Game engine shut down
+[0455.07] Exit: Windows client shut down
+[0455.15] Exit: XAudio2 Device shut down.
+[0456.36] Exit: Object subsystem successfully closed.
+[0456.38] Log: Shutting down FaceFX...
+[0456.46] Log: FaceFX shutdown.
+[0456.53] Exit: Exiting.
+[0456.53] Log: Log file closed, 07/21/20 15:03:20

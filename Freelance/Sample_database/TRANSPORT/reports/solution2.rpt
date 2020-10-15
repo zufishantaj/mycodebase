@@ -1,0 +1,39 @@
+mysql> use xyz001;
+Database changed
+mysql> INSERT INTO TRIP VALUES( 36, 10001, 'PKR768', '2020-09-22' );INSERT INTO TRIPLEG VALUES( 36, 1, 'Sydney', 'Newcastle');        INSERT INTO TRIPLEG VALUES( 36, 2, 'Newcastle', 'Sydney');
+Query OK, 1 row affected (0.46 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO TRIP VALUES( 37, 10001, 'PKR768', '2020-09-22' );
+ERROR 1062 (23000): Duplicate entry '10001-PKR768-2020-09-22' for key 'TRIP_CKEY'
+mysql> CREATE TABLE MESSAGE(         message VARCHAR(500));
+Query OK, 0 rows affected (0.23 sec)
+
+mysql> INSERT INTO MESSAGE (message)   select CONCAT("A driver ",b.enum ," performed more than one trip on ", a.tdate )             from trip a,              driver b            where a.lnum=b.lnum         group by b.enum,a.tdate         having count(a.tnum)>1;
+Query OK, 1 row affected (0.07 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select CONCAT("A driver ",b.enum ," performed more than one trip on ", a.tdate )             from trip a,              driver b            where a.lnum=b.lnum         group by b.enum,a.tdate         having count(a.tnum)>1;
++---------------------------------------------------------------------------+
+| CONCAT("A driver ",b.enum ," performed more than one trip on ", a.tdate ) |
++---------------------------------------------------------------------------+
+| A driver 7 performed more than one trip on 2015-04-23                     |
++---------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO MESSAGE (message)   select CONCAT("A driver ",b.enum ," performed more than one trip on ", a.tdate )             from trip a,              driver b            where a.lnum=b.lnum         group by b.enum,a.tdate         having count(a.tnum)>1;
+Query OK, 1 row affected (0.80 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select message from MESSAGE;
++-------------------------------------------------------+
+| message                                               |
++-------------------------------------------------------+
+| A driver 7 performed more than one trip on 2015-04-23 |
++-------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> exit
